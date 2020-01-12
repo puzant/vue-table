@@ -9,5 +9,5 @@
 - SASS
 - Vue-ClI
 
-![project-image](src/assets/apppreview.png)
+![project-image](src/assets/app-preview.png)
 
