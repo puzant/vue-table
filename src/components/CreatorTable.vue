@@ -1,14 +1,14 @@
 <template lang="pug">
-  .creators-table-container
+  .creators-table-container(v-if="shouldDisplayPopup")
     .table-header
       .number-of-creators
-        | ALL Creators ({{GetnumberOfCreators}} Creators)
+        | ALL Creators ({{numberOfCreators}} Creators)
       .sort-and-filter-container
-        .sort-creators
-          img.sort-logo(src="@/assets/sort.svg")
+        .sort-creators( @click="sortCreatorDataByName()" )
+          img.sort-logo( src="@/assets/sort.svg" )
           .sort-title Sort
         .filter-creators
-          img.filter-logo(src="@/assets/filter.svg")
+          img.filter-logo( src="@/assets/filter.svg" )
           .filter-title Filter
 
     .table-elements-title
@@ -25,24 +25,34 @@
       .group-row(v-for="(creator, index) in creatorsData")
     
         .creator-details-container.creator-cell
-          img(:src=' "@/assets/talent" + "-" + index + ".svg"')
+          img(:src=' "@/assets/talent-" + creator.id + ".svg"')
           .talent-info-posts
-            .talent-name {{creator.creators_details.talent_name}}
-            .talent-posts {{creator.creators_details.number_of_posts}} posts
+            .talent-name 
+              | {{creator.creators_details.talent_name}}
+            .talent-posts 
+              | {{creator.creators_details.number_of_posts}} posts
           
-        .impressions-cell {{creator.impressions}}
+        .impressions-cell 
+          | {{creator.impressions ? creator.impressions : "--"}}
         .engagement-cell.values-container
-          .value {{creator.engagement.value}}
-          .percentage {{creator.engagement.percentage}}%
+          .value 
+            | {{creator.engagement.value ? creator.engagement.value : "--"}}
+          .percentage 
+            | {{creator.engagement.percentage ? creator.engagement.percentage + "%" : "--"}}
         .video-views-cell.values-container
-          .value {{creator.video_views.number_of_views}}
-          .percentage {{creator.video_views.view_percentage}}
-        .cost-cell {{creator.cost}}$
-        .cpv-cell {{creator.cpv}}$
-        .cpe-cell {{creator.cpe}}$
+          .value 
+            | {{creator.video_views.number_of_views ? creator.video_views.number_of_views : "--"}}
+          .percentage 
+            | {{creator.video_views.view_percentage ? creator.video_views.view_percentage : "--"}}
+        .cost-cell 
+          | {{creator.cost}}$
+        .cpv-cell 
+          | {{creator.cpv}}$
+        .cpe-cell 
+          | {{creator.cpe}}$
 
     .table-button-container
-      .close-popup-button CLOSE
+      .close-popup-button( @click="closePopup()" ) CLOSE
       .view-details-popup-button VIEW DETAILS
 
 
@@ -50,21 +60,33 @@
 </template>
 
 <script lang="ts">
-import tableData from '../assets/table_data.js'
+import tableData from '../table_data.js'
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import * as _ from 'lodash'
 
 @Component
 export default class CreatorTable extends Vue {
   creatorsData = tableData.data
   numberOfCreators = 0
+  shouldDisplayPopup = true
 
-  get GetnumberOfCreators() {
+  created() {
+    //  get the number of creators from the creatorsData array of objects
     for(let prop in this.creatorsData) {
       if(this.creatorsData.hasOwnProperty(prop)) 
         this.numberOfCreators++
     }
     return this.numberOfCreators
   }
+
+  closePopup() {
+    this.shouldDisplayPopup = false
+  }
+
+  sortCreatorDataByName() {
+    return this.creatorsData = _.sortBy(this.creatorsData, o => o.creators_details.talent_name)    
+  }
+
 }
 </script>
 
@@ -168,11 +190,14 @@ export default class CreatorTable extends Vue {
 
 .close-popup-button,
 .view-details-popup-button
-  margin-left: 30px
+  margin-left: 10px
   margin-top: 18px
   color: #2196F3
   font-size: 14px
   font-weight: bold
+  padding: 5px 15px
+  transition: .5s
   &:hover
     cursor: pointer
+    background-color: rgba(29, 170, 252, 0.1)
 </style>
