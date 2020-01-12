@@ -1,29 +1,13 @@
 # vue-table
 
-## Project setup
-```
-npm install
-```
+- Simple VUEjs table, built using Flexbox to demonstrat the usage for flex-grow in the table elements
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Framework & tools
+- VueJs framework
+- TypeScript
+- PUG
+- SASS
+- Vue-ClI
 
-### Compiles and minifies for production
-```
-npm run build
-```
+![project-image](src/assets/apppreview.png)
 
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
