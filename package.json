@@ -7,7 +7,9 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@types/lodash": "^4.14.149",
     "core-js": "^3.4.4",
+    "lodash": "^4.17.15",
     "pug": "^2.0.4",
     "pug-plain-loader": "^1.0.0",
     "vue": "^2.6.10",
