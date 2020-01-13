@@ -34,14 +34,14 @@
 
             .talent-platforms
               template( v-if="creator.plaforms.instagram" )
-                img(src="@/assets/instagram.svg")
+                img.instagram-logl(src="@/assets/instagram.svg")
               template( v-if="creator.plaforms.facebook" )
-                img(src="@/assets/facebook.svg")
+                img.facebook-logl(src="@/assets/facebook.svg")
               template( v-if="creator.plaforms.youtube" )
-                img(src="@/assets/youtube.svg")
+                img.youtube-logo(src="@/assets/youtube.svg")
               template( v-if="creator.plaforms.twitter" )
-                img(src="@/assets/twitter.svg")
-              template( v-if="creator.plaforms.snapchat" )
+                img.twitter(src="@/assets/twitter.svg")
+              template.snapchat( v-if="creator.plaforms.snapchat" )
                 img(src="@/assets/snapchat.svg")
 
 
@@ -107,19 +107,20 @@ export default class CreatorTable extends Vue {
 <style lang="sass">
 
 .creators-table-container
-  box-shadow: 0px 0px 48px -18px rgba(0,0,0,0.75)
-  margin: 50px auto
-  border-radius: 5px
-  height: auto
   width: 991px
-  background-color: #fff
+  height: auto
   padding: 20px
+  margin: 50px auto
+  background-color: #fff
   color: #111
+  box-shadow: 0px 0px 48px -18px rgba(0,0,0,0.75)
+  border-radius: 5px
 
 .table-header
   display: flex
   flex-direction: row
   justify-content: space-between
+  width: 99%
 
 .number-of-creators
   color: #212121
@@ -146,8 +147,8 @@ export default class CreatorTable extends Vue {
 .table-elements-title
   display: flex
   width: 991px
-  color: #9FA2B4
   margin-top: 32px
+  color: #9FA2B4
   text-align: left
 
 .element-title
@@ -169,8 +170,8 @@ export default class CreatorTable extends Vue {
 
 .table-data-container
   width: 991px
-  text-align: left
   margin-top: 20px
+  text-align: left
 
 .creator-details-container
   display: flex
@@ -194,28 +195,38 @@ export default class CreatorTable extends Vue {
   width: 12px
   margin: 0 9px 0 -2px
 
+.youtube-logo
+  height: 12px
+
 .percentage
   color: #116697
   font-size: 11px
 
 .group-row
   display: flex
-  align-items: stretch
+  align-items: center
+  width: 970px
   margin: 25px 0 0 0
+  padding: 8px
+  border: 1px solid #DFE0EB
+  border-radius: 5px
+
+.values-container
+  margin-top: 14px
 
 .table-button-container
   display: flex
   justify-content: flex-end
+  margin-top: 20px
 
 .close-popup-button,
 .view-details-popup-button
+  padding: 5px 15px
   margin-left: 10px
-  margin-top: 18px
   color: #2196F3
   border-radius: 5px
   font-size: 14px
   font-weight: bold
-  padding: 5px 15px
   transition: .5s
   &:hover
     cursor: pointer
