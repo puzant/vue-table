@@ -31,6 +31,20 @@
               | {{creator.creators_details.talent_name}}
             .talent-posts 
               | {{creator.creators_details.number_of_posts}} posts
+
+            .talent-platforms
+              template( v-if="creator.plaforms.instagram" )
+                img(src="@/assets/instagram.svg")
+              template( v-if="creator.plaforms.facebook" )
+                img(src="@/assets/facebook.svg")
+              template( v-if="creator.plaforms.youtube" )
+                img(src="@/assets/youtube.svg")
+              template( v-if="creator.plaforms.twitter" )
+                img(src="@/assets/twitter.svg")
+              template( v-if="creator.plaforms.snapchat" )
+                img(src="@/assets/snapchat.svg")
+
+
           
         .impressions-cell 
           | {{creator.impressions ? creator.impressions : "--"}}
@@ -175,6 +189,11 @@ export default class CreatorTable extends Vue {
   color: #116697
   font-size: 11px
 
+
+.talent-platforms img
+  width: 12px
+  margin: 0 9px 0 -2px
+
 .percentage
   color: #116697
   font-size: 11px
@@ -193,6 +212,7 @@ export default class CreatorTable extends Vue {
   margin-left: 10px
   margin-top: 18px
   color: #2196F3
+  border-radius: 5px
   font-size: 14px
   font-weight: bold
   padding: 5px 15px
