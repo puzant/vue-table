@@ -7,6 +7,11 @@ export default {
         "talent_name": "Xing Chang",
         "number_of_posts": "3"
       },
+      "plaforms": {
+        "instagram": true,
+        "facebook": true,
+        "snapchat": true
+      },
       "impressions": null,
       "engagement": {
         "value": "120",
@@ -26,6 +31,10 @@ export default {
         "talent_avatar": "talent-",
         "talent_name": "James AuKland",
         "number_of_posts": "5"
+      },
+      "plaforms": {
+        "twitter": true,
+        "instagram": true
       },
       "impressions": "1500",
       "engagement": {
@@ -47,6 +56,11 @@ export default {
         "talent_name": "Mary Svetlan",
         "number_of_posts": "2"
       },
+      "plaforms": {
+        "twitter": true,
+        "facebook": true,
+        "snapchat": true
+      },
       "impressions": "2730",
       "engagement": {
         "value": "87",
@@ -66,6 +80,11 @@ export default {
         "talent_avatar": "talent-",
         "talent_name": "Jonthan Hail",
         "number_of_posts": "1"
+      },
+      "plaforms": {
+        "instagram": true,
+        "facebook": true,
+        "youtube": true
       },
       "impressions": "2000",
       "engagement": {
@@ -87,6 +106,10 @@ export default {
         "talent_name": "Amanda soulop",
         "number_of_posts": "12"
       },
+      "plaforms": {
+        "instagram": true,
+        "youtube": true
+      },
       "impressions": "2300",
       "engagement": {
         "value": "150",
@@ -106,6 +129,11 @@ export default {
         "talent_avatar": "talent-",
         "talent_name": "Samantha strobe",
         "number_of_posts": "1"
+      },
+      "plaforms": {
+        "instagram": true,
+        "facebook": true,
+        "snapchat": true
       },
       "impressions": "100",
       "engagement": {
